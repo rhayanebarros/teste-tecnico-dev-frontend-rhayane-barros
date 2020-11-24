@@ -1,0 +1,14 @@
+.overflow-hidden {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#nav {
+  a {
+    color: $blue;
+
+    &.router-link-exact-active {
+      color: red;
+    }
+  }
+}

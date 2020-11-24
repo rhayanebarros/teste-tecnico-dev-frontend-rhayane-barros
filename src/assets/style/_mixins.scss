@@ -1,0 +1,26 @@
+//  breakpoints.
+$breakpoints: (
+  sm: 320px,
+  md: 640px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+// e.g: @include above(s) {}
+@mixin above($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// vertical align
+@mixin vertical-align() {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+}
